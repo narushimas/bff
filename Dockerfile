@@ -1,7 +1,7 @@
 # Dockerfile for sample service using embedded tomcat server
 
 FROM centos:centos7
-MAINTAINER debugroom
+MAINTAINER narushimas
 
 RUN yum install -y \
        java-1.8.0-openjdk \
