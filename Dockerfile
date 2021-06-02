@@ -20,4 +20,4 @@ RUN ln -sf  /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 EXPOSE 8080
 
-CMD java -jar -Dspring.profiles.active=production /var/local/backend/target/bff-0.0.1-SNAPSHOT.jar
+CMD java -jar -Dspring.profiles.active=production /var/local/bff/target/bff-0.0.1-SNAPSHOT.jar
