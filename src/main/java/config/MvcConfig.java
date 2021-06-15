@@ -6,14 +6,22 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestOperations;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @ComponentScan("app.web")
-public class WebMvcConfigurer {
+public class MvcConfig implements WebMvcConfigurer {
     @Autowired
     ServiceProperties properties;
 
     @Bean
     public RestOperations restOperations(RestTemplateBuilder restTemplateBuilder){
         return restTemplateBuilder.rootUri(properties.getDns()).build();
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/static/**")
+                .addResourceLocations("classpath:/static/");
     }
 }
