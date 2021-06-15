@@ -10,6 +10,7 @@ import org.springframework.web.client.RestOperations;
 
 @Controller
 public class BackendForFrontendController {
+
     @Autowired
     RestOperations restOperations;
 
